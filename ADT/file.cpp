@@ -32,14 +32,17 @@ void add(Array &arr, int x){
 
 //INSERTING ellement in specific INDEX
 void insert(Array &arr , int index , int X){
-  if (arr.length<arr.size)
+  if (index >= 0 && index <= arr.length)
   {
-    for (int i = arr.length; i > index; i--)
+    if (arr.length < arr.size)
     {
-      arr.A[i] = arr.A[i-1];
+      for (int i = arr.length; i > index; i--)
+      {
+        arr.A[i] = arr.A[i-1];
+      }
+      arr.A[index] = X;
+      arr.length++;
     }
-    arr.A[index] = X;
-    arr.length++;
   }
 }
 
