@@ -3,7 +3,16 @@
 
 using namespace std;
 
-// Creating ARRAY as data structure
+//creating swap function for 2 integers
+void swap(int *x , int *y){
+  int temp;
+  temp = *x;
+  *x = *y;
+  *y = temp;
+}
+
+
+//Creating ARRAY as data structure
 struct Array
 {
   int *A;
@@ -59,6 +68,21 @@ void Delete(Array &arr , int index){
 }
 
 
+
+
+//LINEAR SEARCH for an key
+int linearSearch(Array arr , int key){
+  for (int i = 0; i < arr.length; i++)
+  {
+    if (key == arr.A[i])
+    {
+      return i ;
+    }
+  }
+  return -1 ;
+}
+
+
 int main(int argc, char const *argv[])
 {
   // initializing an ARRAY
@@ -79,9 +103,10 @@ int main(int argc, char const *argv[])
   insert(arr , 2 , 25);
   add(arr ,13);
   Delete(arr , 1);
+  cout<<linearSearch(arr ,20)<<" ";
   display(arr);
 
-
+  free(arr.A);
   
   return 0;
 }
