@@ -47,6 +47,18 @@ void insert(Array &arr , int index , int X){
 }
 
 
+// DELETING an element by it's index
+void Delete(Array &arr , int index){
+  if(index >= 0 && index <= arr.length){
+    for (int i = index; i < arr.length-1 ; i++)
+    {
+      arr.A[i] = arr.A[i+1];
+    }
+  }
+  arr.length -- ; // its' vere important to reduce the length
+}
+
+
 int main(int argc, char const *argv[])
 {
   // initializing an ARRAY
@@ -66,6 +78,7 @@ int main(int argc, char const *argv[])
 
   insert(arr , 2 , 25);
   add(arr ,13);
+  Delete(arr , 1);
   display(arr);
 
 
