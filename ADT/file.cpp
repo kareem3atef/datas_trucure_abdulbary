@@ -18,7 +18,29 @@ void display(Array arr){
   {
     cout<<arr.A[i]<<" ";
   }
-  
+}
+
+// ADDING or APPENDING in ARRAY
+void add(Array &arr, int x){
+  if (arr.length<arr.size)
+  {
+    arr.A[arr.length] = x;
+    arr.length ++;
+  }
+}
+
+
+//INSERTING ellement in specific INDEX
+void insert(Array &arr , int index , int X){
+  if (arr.length<arr.size)
+  {
+    for (int i = arr.length; i > index; i--)
+    {
+      arr.A[i] = arr.A[i-1];
+    }
+    arr.A[index] = X;
+    arr.length++;
+  }
 }
 
 
@@ -39,7 +61,8 @@ int main(int argc, char const *argv[])
     arr.A[i] = i;
   }
 
-
+  insert(arr , 2 , 25);
+  add(arr ,13);
   display(arr);
 
 
