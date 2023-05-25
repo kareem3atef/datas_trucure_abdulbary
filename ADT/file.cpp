@@ -113,29 +113,22 @@ int binarySearchI(Array arr , int key){
 
 
 //Recursive Implementation
-int binarySearchR(int arr[] , int key , int high , int low){
-  int mid;
-  if (low <= high)
-  {
-    mid = (low + high) / 2;
-    if (key == arr[mid])
-    {
-      return mid;
+int binarySearchR(int arr[], int key, int high, int low) {
+    int mid;
+    if (low <= high) {
+        mid = (low + high) / 2;
+        if (key == arr[mid]) {
+            return mid;
+        } else if (key < arr[mid]) {
+            return binarySearchR(arr, key, mid - 1, low);    // chat gpt fix it for me
+        } else {
+            return binarySearchR(arr, key, high, mid + 1);   // you must put the fucking RETURN before calling the recursive function
+        }
     }
-    else if (key < arr[mid])
-    {
-      binarySearchR(arr , key , (mid -1) , low);
-    }
-    else{
-      binarySearchR(arr , key , high , (mid +1));
-    }
-    
-  }
-  
 
-
-  return -1;
+    return -1;
 }
+
 
 
 
