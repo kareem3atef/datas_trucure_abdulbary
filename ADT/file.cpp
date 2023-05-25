@@ -83,6 +83,62 @@ int linearSearch(Array arr , int key){
 }
 
 
+//##################################
+//####### BINARY SEARCH ############
+//##################################
+
+//iterative implementation
+int binarySearchI(Array arr , int key){
+  int l,m,h;
+  l = 0;
+  h = arr.length -1;
+  while (l<=h)
+  {
+    m = (l+h)/2;
+    if (arr.A[m] == key)
+    {
+      return m;
+    }
+    else if (key > arr.A[m])
+    {
+      l = m + 1; 
+    }
+    else
+    {
+      h = m - 1;
+    }
+  }
+  return -1 ;
+}
+
+
+//Recursive Implementation
+int binarySearchR(int arr[] , int key , int high , int low){
+  int mid;
+  if (low <= high)
+  {
+    mid = (low + high) / 2;
+    if (key == arr[mid])
+    {
+      return mid;
+    }
+    else if (key < arr[mid])
+    {
+      binarySearchR(arr , key , (mid -1) , low);
+    }
+    else{
+      binarySearchR(arr , key , high , (mid +1));
+    }
+    
+  }
+  
+
+
+  return -1;
+}
+
+
+
 int main(int argc, char const *argv[])
 {
   // initializing an ARRAY
@@ -103,7 +159,7 @@ int main(int argc, char const *argv[])
   insert(arr , 2 , 25);
   add(arr ,13);
   Delete(arr , 1);
-  cout<<linearSearch(arr ,20)<<" ";
+  cout<<binarySearchR(arr.A ,35 , arr.length -1 , 0)<<" ";
   display(arr);
 
   free(arr.A);
