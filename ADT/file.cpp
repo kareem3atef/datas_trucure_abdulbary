@@ -4,12 +4,12 @@
 using namespace std;
 
 // creating swap function for 2 integers
-void swap(int *x, int *y)
+void swap(int &x, int &y)
 {
   int temp;
-  temp = *x;
-  *x = *y;
-  *y = temp;
+  temp = x;
+  x = y;
+  y = temp;
 }
 
 // Creating ARRAY as data structure
@@ -182,6 +182,20 @@ int sum(Array arr)
   return total;
 }
 
+// ###############################33
+// #########3 Reversing ############
+// #################################
+
+void reverse(Array *arr)
+{
+  // while debugging
+  //  ifound out the condition is while i >= j only don't push till the end you will revers it agin
+  for (int i = arr->length - 1, j = 0; i >= j; i--, j++)
+  {
+    swap(arr->A[i], arr->A[j]);
+  }
+}
+
 int main(int argc, char const *argv[])
 {
   // initializing an ARRAY
@@ -203,10 +217,12 @@ int main(int argc, char const *argv[])
   add(arr, 13);
   // Delete(arr, 1);
   // cout << get(arr, 70);
-  cout << sum(arr);
+  // cout << sum(arr);
   // cout << max(arr);
   //  cout << binarySearchR(arr.A, 35, arr.length - 1, 0) << " ";
-  //  display(arr);
+  display(arr);
+  reverse(&arr);
+  display(arr);
 
   free(arr.A);
 
