@@ -186,6 +186,7 @@ int sum(Array arr)
 // #########3 Reversing ############
 // #################################
 
+/*
 void reverse(Array *arr)
 {
   // while debugging
@@ -193,6 +194,18 @@ void reverse(Array *arr)
   for (int i = arr->length - 1, j = 0; i >= j; i--, j++)
   {
     swap(arr->A[i], arr->A[j]);
+  }
+}
+*/
+// another techinque in reversing with while loop :::::::;;;;;;;;
+void reverse(Array *arr)
+{
+  int i, j;
+  i = 0;
+  j = arr->length - 1;
+  while (i < j)
+  {
+    swap(arr->A[i++], arr->A[j--]);
   }
 }
 
